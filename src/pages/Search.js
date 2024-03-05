@@ -6,14 +6,14 @@ import axios from 'axios'
 function Search() {
 
     const [query, setQuery] = useState("")
-    const [bookData, setBookData] = useState()
+    const [bookData, setBookData] = useState([])
 
     useEffect(()=>{
       if(query != ""){
         console.log(query)
         axios.get("https://www.googleapis.com/books/v1/volumes?q=" + query.replace(/ /g,"+"))
         .then(res =>{
-          console.log(res.data)
+          console.log(res.data.items)
           setBookData(res.data.items)    
      })
   }
@@ -22,7 +22,7 @@ function Search() {
   return (
     <div>
       <SearchBar updateList={setQuery}/>
-      <BookGrid />
+      <BookGrid bookData={bookData}/>
     </div>
   )
 }

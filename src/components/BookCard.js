@@ -1,15 +1,15 @@
 import React from 'react'
 
 
-function BookCard() {
+function BookCard({title, image, author}) {
     return (
-      <div className='bg-white rounded-md col-span-1 shadow-md w-60 flex flex-col'>
-          <div className='h-full w-full justify-center'>
-              <img src="https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg" className='object-cover rounded-md m-auto'/>
+      <div className='bg-slate-200 p-5 gap-10 w-52 h-80 rounded-md col-span-1 shadow-md  flex flex-col '>
+          <div className='h-1/2'>
+              <img src={image} className=' object-fill h-48 w-96 rounded-md m-auto'/>
           </div>
-          <div className='align-text-baseline p-5  bg-slate-200'>
-              <h1 className='font-bold'>Something about Something</h1>
-              <h2>Jason Mars</h2>
+          <div className='bg-slate-200 rounded-md align-text-bottom h-1/4 m-auto'>
+              <h1 className='font-bold'>{title}</h1>
+              <h2 className='align-text-bottom'>{author}</h2>
           </div>
       </div>
     )
