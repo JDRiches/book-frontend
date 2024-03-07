@@ -14,7 +14,7 @@ function BookCard({title, image, author}) {
             </div>
             <div className='h-full flex flex-row mx-auto align-bottom items-end'>
                 <button class="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow">
-                    Read?
+                    Read It?
                 </button>
             </div>
 
