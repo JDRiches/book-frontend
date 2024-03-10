@@ -6,7 +6,7 @@ function SearchBar({updateList}) {
     const [query, setQuery] = useState("")
 
     useEffect(() => {
-        const timeOutId = setTimeout(() => {updateList(query)},1000);
+        const timeOutId = setTimeout(() => {updateList(query)},750);
         return () => clearTimeout(timeOutId)
     }, [query])
 
