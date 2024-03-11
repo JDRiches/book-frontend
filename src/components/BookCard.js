@@ -22,14 +22,16 @@ function BookCard({title, id, image, author, read}) {
     }, [])
 
     const readBook = () => {
-        console.log(id)
-
         const data = {"id": id, "title": title, "image": image, "author": author}
-        console.log("Token: " + token)
-        axios.post("http://127.0.0.1:8000/addread", data,{ headers: {"Authorization" : `Bearer ${token}`}})
-        .then(
-            setIsRead(true)
-        )
+        console.log("Adding: " + data.title)
+        axios.post("http://127.0.0.1:8000/read", data,{ headers: {"Authorization" : `Bearer ${token}`}})
+        .then(setIsRead('true'))
+    }
+
+    const removeBook = () => {
+        const data = {"id": id, "title": title, "image": image, "author": author}
+        axios.delete("http://127.0.0.1:8000/read",{ data: data, headers: {"Authorization" : `Bearer ${token}`}})
+        .then(setIsRead('false'))
     }
 
     const notReadButton = () =>
@@ -43,7 +45,7 @@ function BookCard({title, id, image, author, read}) {
 
     const readButton = () => {
         return (
-            <button onClick={readBook} className=" bg-green-200 hover:bg-green-300 text-white-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow">
+            <button onClick={removeBook} className=" bg-green-200 hover:bg-green-300 text-white-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow">
             Read
         </button>
         )
@@ -61,7 +63,7 @@ function BookCard({title, id, image, author, read}) {
                 <h2 className='align-text-bottom truncate'>{author}</h2>
             </div>
             <div className='h-full flex flex-row mx-auto align-bottom items-end'>
-                {isRead == 'true' ? readButton() : notReadButton()}
+                {isRead === 'true' ? readButton() : notReadButton()}
             </div>
 
           </div>

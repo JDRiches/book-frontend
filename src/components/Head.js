@@ -2,6 +2,7 @@ import React from 'react'
 import { onAuthStateChanged, signOut } from 'firebase/auth'
 import { auth } from '../firebase'
 import { useState, useEffect } from 'react'
+import { NavLink } from 'react-router-dom'
 
 function Head() {
 
@@ -42,8 +43,9 @@ const handleLogout = () => {
         <div className='flex flex-row-reverse w-1/2 gap-10 font-bold'>
             <a>Friends</a>
             <a>Collections</a>
-            <a>Read</a>
-            <a>Search</a>
+            <NavLink to="/read">Read</NavLink>
+
+            <NavLink to="/">Search</NavLink>
         </div>
     </div>
   )

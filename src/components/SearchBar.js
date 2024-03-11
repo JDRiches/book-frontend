@@ -12,7 +12,7 @@ function SearchBar({updateList}) {
 
   return (
     <div className='flex flex-row-reverse p-5 gap-5 justify-center align-middle'>
-        <input onChange={(event) => {setQuery(event.target.value)}} type='text' className='bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-slate-500'/>
+        <input autoFocus onChange={(event) => {setQuery(event.target.value)}} type='text' className='bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-slate-500'/>
         <h1 className='my-auto font-bold'>Search</h1>
     </div>
   )
